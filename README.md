@@ -1,9 +1,6 @@
 # deepseek
 # 🧠 Fine-Tuning DeepSeek-R1 for Medical Reasoning (QLoRA + Unsloth)
 
-## 🔗 Kaggle Notebook Version
-You can view and run this project directly on [Kaggle](https://www.kaggle.com/code/sohamkar529/deepseek2c7cb42855)  
-
 This project fine-tunes the `DeepSeek-R1-Distill-Llama-8B` model on the `medical-o1` dataset using efficient methods like **QLoRA**, **LoRA adapters**, and the **Unsloth framework**. The goal is to enhance clinical reasoning capabilities in medical QA systems while reducing memory and compute requirements.
 
 ---
@@ -116,6 +113,31 @@ FastLanguageModel.prepare_model_for_training(...)
 
 ## 🧪 Training Overview
 
+┌──────────────┐      ┌────────────────┐      ┌───────────────┐
+│  Base Model  │ ──▶  │ Quantize (4-bit)│ ──▶ │ Load Dataset  │
+└──────────────┘      └────────────────┘      └─────┬─────────┘
+                                                    ▼
+                                          ┌────────────────────┐
+                                          │ Format Prompts     │
+                                          └────────┬───────────┘
+                                                   ▼
+                                         ┌─────────────────────┐
+                                         │ Apply LoRA Adapters │
+                                         └────────┬────────────┘
+                                                  ▼
+                                        ┌──────────────────────┐
+                                        │ Fine-Tune (3 Epochs) │
+                                        └────────┬─────────────┘
+                                                 ▼
+                                       ┌────────────────────────┐
+                                       │ Save Adapter Weights   │
+                                       └────────┬───────────────┘
+                                                ▼
+                                    ┌────────────────────────────┐
+                                    │ Post-Tune Medical Inference│
+                                    └────────────────────────────┘
+
+
 ![Pipeline](./assets/pipeline_overview.png)
 
 - Load model with `load_in_4bit=True`
@@ -182,9 +204,9 @@ print(tokenizer.decode(outputs[0]))
 
 ---
 
-## 📓 Notebook
+## 🔗 Kaggle Notebook Version
+You can view and run this project directly on [Kaggle](https://www.kaggle.com/code/sohamkar529/deepseek2c7cb42855)  
 
-📎 [View Notebook](notebooks/Fine_Tuning_DEEPSEEK_R1.ipynb)
 
 ---
 
