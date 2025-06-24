@@ -103,6 +103,73 @@ FastLanguageModel.from_pretrained(...)
 FastLanguageModel.get_peft_model(...)
 FastLanguageModel.prepare_model_for_training(...)
 ```
+---
+
+## 🧬 Dataset Used: [`FreedomIntelligence/medical-o1-reasoning-SFT`](https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT)
+
+> 🔍 This dataset is a **supervised fine-tuning (SFT)** dataset specifically designed to evaluate and train LLMs on complex **medical reasoning**, including diagnosis, explanation, and treatment recommendation.
+
+### 📦 Dataset Details
+
+| Field        | Description |
+|--------------|-------------|
+| 📚 Name       | `medical-o1-reasoning-SFT` |
+| 🧪 Source     | [`FreedomIntelligence`](https://huggingface.co/FreedomIntelligence) on Hugging Face |
+| 🧠 Focus      | Medical question-answering and reasoning |
+| 🧾 Format     | JSONL / Hugging Face Datasets format |
+| 🔧 Fields     | `instruction`, `input`, `output` |
+| 🔁 Type       | Instruction-tuned (SFT) |
+| 📊 Size       | ~10,000 examples (approx.) |
+| 🩺 Domain     | Clinical QA, Diagnosis, Medical Education |
+| 🗂️ License    | Apache 2.0 |
+
+### 🧾 Sample Entry
+
+```json
+{
+  "instruction": "Explain the pathophysiology of Type 1 Diabetes.",
+  "input": "",
+  "output": "Type 1 Diabetes is caused by autoimmune destruction of pancreatic beta cells..."
+}
+```
+
+### 🤖 Why It Was Chosen
+
+- Emphasizes **chain-of-thought medical reasoning**
+- Structured for **instruction tuning**, compatible with LoRA + QLoRA
+- Pairs well with models like `DeepSeek-R1` due to its distilled instruction format
+
+### 🧩 Integration in Pipeline
+
+We load and preprocess it using:
+
+```python
+from datasets import load_dataset
+
+dataset = load_dataset("FreedomIntelligence/medical-o1-reasoning-SFT", split="train")
+```
+
+And format it to this template:
+
+```
+### Instruction:
+{instruction}
+### Input:
+{input}
+### Response:
+{output}
+```
+
+### 🧠 Citation
+
+```bibtex
+@misc{freedomintelligence2024medicalo1,
+  title={Medical O1 Reasoning Dataset},
+  author={FreedomIntelligence},
+  year={2024},
+  howpublished={\url{https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT}},
+}
+```
 
 ---
 
