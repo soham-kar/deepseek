@@ -217,6 +217,18 @@ print(tokenizer.decode(outputs[0]))
 | Inference Coherence | ⚠️ Mixed | ✅ Consistent |
 
 ---
+## 🧠 Before vs After: Inference Comparison
+
+This section highlights the impact of fine-tuning. The base model produces generic, high-level responses, while the fine-tuned model demonstrates deeper clinical understanding.
+
+| Prompt                        | 🧪 Base Model Response                          | ✅ Fine-Tuned Model Response                                             |
+|------------------------------|--------------------------------------------------|--------------------------------------------------------------------------|
+| Explain Type 2 Diabetes      | "It is a disease affecting blood sugar..."       | "Type 2 Diabetes is characterized by insulin resistance, where the body's cells do not respond to insulin effectively..." |
+| What is insulin resistance?  | "Insulin helps manage blood sugar..."           | "Insulin resistance occurs when muscle, fat, and liver cells fail to respond properly to insulin, leading to hyperglycemia..." |
+
+> ✅ **Observation**: Fine-tuning significantly improved specificity and medical relevance.
+
+---
 
 ## 🔗 Kaggle Notebook Version
 You can view and run this project directly on [Kaggle](https://www.kaggle.com/code/sohamkar529/deepseek2c7cb42855)  
