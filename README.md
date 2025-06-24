@@ -110,7 +110,7 @@ FastLanguageModel.prepare_model_for_training(...)
 ```
 ---
 
-## 🧬 Dataset Used: [`FreedomIntelligence/medical-o1-reasoning-SFT`](https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT) <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face" width="45"/> 
+## 🧬 Dataset Used: [`FreedomIntelligence/medical-o1-reasoning-SFT`](https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT) 
 
 > 🔍 This dataset is a **supervised fine-tuning (SFT)** dataset specifically designed to evaluate and train LLMs on complex **medical reasoning**, including diagnosis, explanation, and treatment recommendation.
 
