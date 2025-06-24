@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Hugging Face Dataset](https://img.shields.io/badge/Dataset-HuggingFace-blue)](https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
-[![Model](https://img.shields.io/badge/Model-DeepSeekR1_8B-purple)](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill)
+[![Model](https://img.shields.io/badge/Model-DeepSeekR1_8B-purple)](https://huggingface.co/deepseek-ai/DeepSeek-R1)
 
 
 This project fine-tunes the `DeepSeek-R1-Distill-Llama-8B` model on the `medical-o1` dataset using efficient methods like **QLoRA**, **LoRA adapters**, and the **Unsloth framework**. The goal is to enhance clinical reasoning capabilities in medical QA systems while reducing memory and compute requirements.
