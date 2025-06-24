@@ -10,7 +10,7 @@ This project fine-tunes the `DeepSeek-R1-Distill-Llama-8B` model on the `medical
 ---
 
 ## 🔗 Kaggle Notebook Version
-You can view and run this project directly on [Kaggle](https://www.kaggle.com/code/sohamkar529/deepseek2c7cb42855)  
+You can view and run this project directly on [Google Colab](https://colab.research.google.com/drive/1FDEoJWDB8GFt2iZjao-MWTTvaKxVUnvW)  
 
 ---
 
