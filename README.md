@@ -4,6 +4,11 @@ This project fine-tunes the `DeepSeek-R1-Distill-Llama-8B` model on the `medical
 
 ---
 
+## 🔗 Kaggle Notebook Version
+You can view and run this project directly on [Kaggle](https://www.kaggle.com/code/sohamkar529/deepseek2c7cb42855)  
+
+---
+
 ## 🧬 Techniques Used
 
 ### 🔄 LoRA (Low-Rank Adaptation)
@@ -227,11 +232,6 @@ This section highlights the impact of fine-tuning. The base model produces gener
 | What is insulin resistance?  | "Insulin helps manage blood sugar..."           | "Insulin resistance occurs when muscle, fat, and liver cells fail to respond properly to insulin, leading to hyperglycemia..." |
 
 > ✅ **Observation**: Fine-tuning significantly improved specificity and medical relevance.
-
----
-
-## 🔗 Kaggle Notebook Version
-You can view and run this project directly on [Kaggle](https://www.kaggle.com/code/sohamkar529/deepseek2c7cb42855)  
 
 ---
 
