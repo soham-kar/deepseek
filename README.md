@@ -1,4 +1,3 @@
-# deepseek
 # 🧠 Fine-Tuning DeepSeek-R1 for Medical Reasoning (QLoRA + Unsloth)
 
 This project fine-tunes the `DeepSeek-R1-Distill-Llama-8B` model on the `medical-o1` dataset using efficient methods like **QLoRA**, **LoRA adapters**, and the **Unsloth framework**. The goal is to enhance clinical reasoning capabilities in medical QA systems while reducing memory and compute requirements.
@@ -111,8 +110,31 @@ FastLanguageModel.prepare_model_for_training(...)
 
 ---
 
-## 🧪 Training Overview
+## 🧪 Training Workflow: From Base Model to Domain Expert
 
+This section illustrates the **end-to-end fine-tuning pipeline** using `DeepSeek-R1-Distill-Llama-8B`, the `medical-o1` dataset, and efficient training strategies like LoRA and quantization — all implemented through the `Unsloth` framework.
+
+### 🖼️ Overview Diagram  
+![Pipeline](./assets/pipeline_overview.png)
+
+---
+
+### 🔁 Step-by-Step Breakdown
+
+| Step | Description |
+|------|-------------|
+| 🧠 **1. Load Base Model** | Initialize `DeepSeek-R1-Distill-Llama-8B` with **4-bit quantization** using:<br>`load_in_4bit=True`<br>This reduces memory usage drastically while maintaining performance. |
+| 🗂️ **2. Load & Format Dataset** | Use the `medical-o1` dataset containing:<br>- `instruction` (task)<br>- `input` (context)<br>- `output` (expected answer)<br><br>All samples are converted to a standard prompt format:  <br>`### Instruction:` … `### Input:` … `### Response:` |
+| 🧩 **3. Inject LoRA Adapters** | With `FastLanguageModel.get_peft_model()`, LoRA adapters are inserted into transformer layers.<br>LoRA hyperparameters:<br>`r=16`, `alpha=16`, `dropout=0.05` |
+| 🧪 **4. Fine-Tune the Model** | The model is fine-tuned using:<br>✅ **AdamW optimizer**<br>✅ **Linear learning rate scheduler**<br>✅ **3 epochs**, batch size = 2<br>✅ Trained on CUDA (GPU)<br><br>All while only updating LoRA parameters. |
+| 💾 **5. Save Adapters** | After training, only the LoRA adapters are saved in `.safetensors` format:<br>`models/adapter_model.safetensors`<br>This is lightweight (~100MB) and reusable. |
+| 🧠 **6. Inference & Evaluation** | Perform **pre/post fine-tuning inference** on medical queries:<br>✅ See how model reasoning improves<br>✅ Compare medical accuracy, depth, and relevance |
+
+---
+
+### ⚡ Visual Recap (Mini Flowchart)
+
+```text
 ┌──────────────┐      ┌────────────────┐      ┌───────────────┐
 │  Base Model  │ ──▶  │ Quantize (4-bit)│ ──▶ │ Load Dataset  │
 └──────────────┘      └────────────────┘      └─────┬─────────┘
@@ -136,24 +158,16 @@ FastLanguageModel.prepare_model_for_training(...)
                                     ┌────────────────────────────┐
                                     │ Post-Tune Medical Inference│
                                     └────────────────────────────┘
+```
 
-
-![Pipeline](./assets/pipeline_overview.png)
-
-- Load model with `load_in_4bit=True`
-- Format medical instruction dataset
-- Apply LoRA adapters with Unsloth
-- Train for 3 epochs with AdamW
-- Save LoRA adapters (`.safetensors`)
-- Run post-training inference
 
 ---
 
 ## ⚙️ Setup Instructions
 
 ```bash
-git clone https://github.com/your-username/deepseek-medical-finetune.git
-cd deepseek-medical-finetune
+git clone https://github.com/soham-kar/deepseek.git
+cd deepseek
 pip install -r requirements.txt
 ```
 
@@ -207,8 +221,16 @@ print(tokenizer.decode(outputs[0]))
 ## 🔗 Kaggle Notebook Version
 You can view and run this project directly on [Kaggle](https://www.kaggle.com/code/sohamkar529/deepseek2c7cb42855)  
 
+---
+
+## 💡 Next Steps
+
+- Merge LoRA weights into base model for export
+- Build interactive demo with Streamlit/Gradio
+- Experiment with `medical-mcqa` and `pubmedqa`
 
 ---
+
 
 ## 💡 Next Steps
 
