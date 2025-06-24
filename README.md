@@ -1,4 +1,4 @@
-# 🧠 Fine-Tuning DeepSeek-R1 for Medical Reasoning (QLoRA + Unsloth)
+# 🧠 Fine-Tuning DeepSeek-R1 for Medical Reasoning (LoRA + Unsloth)
 
 This project fine-tunes the `DeepSeek-R1-Distill-Llama-8B` model on the `medical-o1` dataset using efficient methods like **QLoRA**, **LoRA adapters**, and the **Unsloth framework**. The goal is to enhance clinical reasoning capabilities in medical QA systems while reducing memory and compute requirements.
 
@@ -115,7 +115,7 @@ FastLanguageModel.prepare_model_for_training(...)
 This section illustrates the **end-to-end fine-tuning pipeline** using `DeepSeek-R1-Distill-Llama-8B`, the `medical-o1` dataset, and efficient training strategies like LoRA and quantization — all implemented through the `Unsloth` framework.
 
 ### 🖼️ Overview Diagram  
-![Pipeline](./assets/pipeline_overview.png)
+![Pipeline](https://github.com/soham-kar/deepseek/blob/main/Medical%20Model%20Fine-Tuning%20Flowchart.png)
 
 ---
 
