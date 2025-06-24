@@ -1,4 +1,5 @@
-# 🧠 Fine-Tuning DeepSeek-R1 for Medical Reasoning (LoRA + Unsloth)             <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face" width="45"/>
+# 🧠 Fine-Tuning DeepSeek-R1 for Medical Reasoning (LoRA + Unsloth)             <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face" width="45"/> <img src="https://avatars.githubusercontent.com/u/161054793?s=200&v=4" alt="DeepSeek AI" width="50"/>
+
 
 [![Hugging Face Dataset](https://img.shields.io/badge/Dataset-HuggingFace-blue)](https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
