@@ -22,6 +22,12 @@ LoRA is a parameter-efficient fine-tuning method that injects learnable adapters
   - Smaller memory footprint
   - Faster training, easier adapter sharing (`.safetensors`)
 
+## 🧭 How It Works
+
+<p align="center">
+  <img src="https://github.com/soham-kar/deepseek/blob/main/lora.png" width="1000 "/>
+</p>
+
 ---
 
 ### ⚖️ 4-Bit Quantization (QLoRA Style)
@@ -231,8 +237,7 @@ This section highlights the impact of fine-tuning. The base model produces gener
 | Explain Type 2 Diabetes      | "It is a disease affecting blood sugar..."       | "Type 2 Diabetes is characterized by insulin resistance, where the body's cells do not respond to insulin effectively..." |
 | What is insulin resistance?  | "Insulin helps manage blood sugar..."           | "Insulin resistance occurs when muscle, fat, and liver cells fail to respond properly to insulin, leading to hyperglycemia..." |
 
-> ✅ **Observation**: Fine-tuning significantly improved specificity and medical relevance.
-
+> ✅ **Observation**: After fine-tuning, the model shows improved domain alignment with accurate medical terminology, structured reasoning, and fewer generic statements.
 ---
 
 ## 💡 Next Steps
@@ -243,11 +248,3 @@ This section highlights the impact of fine-tuning. The base model produces gener
 
 ---
 
-
-## 💡 Next Steps
-
-- Merge LoRA weights into base model for export
-- Build interactive demo with Streamlit/Gradio
-- Experiment with `medical-mcqa` and `pubmedqa`
-
----
