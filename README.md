@@ -214,7 +214,7 @@ This section illustrates the **end-to-end fine-tuning pipeline** using `DeepSeek
 
 ```text
 ┌──────────────┐      ┌────────────────┐      ┌───────────────┐
-│  Base Model  │ ──▶  │ Quantize (4-bit)│ ──▶ │ Load Dataset  │
+│  Base Model  │ ──▶ │ Quantize (4-bit)│ ──▶ │ Load Dataset  │
 └──────────────┘      └────────────────┘      └─────┬─────────┘
                                                     ▼
                                           ┌────────────────────┐
